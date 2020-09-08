@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Dashboard - HRA</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- CSRF Token -->
+    <meta name="_token" content="r0jm9Q0QbgITp1DcHcjKFqH5SWUojoCavOOjQpPs">
+    <link rel="shortcut icon" href="../favicon.ico">
+    <!-- plugin css -->
+    <link href="../assets/fonts/feather-font/css/iconfont.css" rel="stylesheet" />
+    <link href="../assets/plugins/flag-icon-css/css/flag-icon.min.css" rel="stylesheet" />
+    <link href="../assets/plugins/perfect-scrollbar/perfect-scrollbar.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
+    <script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
+    <link href="../css/app.css" rel="stylesheet" />
+    <style>
+        .red {
+            color: #ff2a00
+        }
+        
+        .orange {
+            color: #ff5900
+        }
+        
+        .yellow {
+            color: #ffee00;
+        }
+        
+        .purple {
+            color: #e3308f;
+        }
+        
+        .high_purple {
+            color: #6200d9;
+        }
+        
+        .blue_sky {
+            color: #0089d9;
+        }
+    </style>
+</head>
+
+<body data-base-url="">
+    <script src="../assets/js/spinner.js"></script>
+    <div class="main-wrapper" id="app">
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <a href="#" class="sidebar-brand">
+                    <img src="../assets/images/Mattel_logo.png" alt="" width="45" height="45">
+                </a>
+                <div class="sidebar-toggler not-active">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+            <div class="sidebar-body">
+                <ul class="nav">
+                    <li class="nav-item nav-category">Main</li>
+                    <li class="nav-item ">
+                        <a href="" class="nav-link">
+                            <i class="link-icon" data-feather="grid"></i>
+                            <span class="link-title">Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="nav-item nav-category">Attendance Management</li>
+                    <li class="nav-item ">
+                        <a href="../apps/calendar.html" class="nav-link">
+                            <i class="link-icon" data-feather="calendar"></i>
+                            <span class="link-title">Attendance</span>
+                        </a>
+                    </li>
+                    <li class="nav-item ">
+                        <a href="../apps/chat.html" class="nav-link">
+                            <i class="link-icon" data-feather="log-out"></i>
+                            <span class="link-title">Leave Request</span>
+                        </a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link" data-toggle="collapse" href="#email" role="button" aria-expanded="false" aria-controls="email">
+                            <i class="link-icon" data-feather="folder"></i>
+                            <span class="link-title">DMS</span>
+                            <i class="link-arrow" data-feather="chevron-down"></i>
+                        </a>
+                        <div class="collapse " id="email">
+                            <ul class="nav sub-menu">
+                                <li class="nav-item">
+                                    <a href="../email/inbox.html" class="nav-link ">Master Data</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="../email/inbox.html" class="nav-link ">Organizational Management</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="../email/inbox.html" class="nav-link ">Attendance Management</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="nav-item ">
+                        <a href="../apps/chat.html" class="nav-link">
+                            <i class="link-icon" data-feather="help-circle"></i>
+                            <span class="link-title">IT Help desk</span>
+                        </a>
+                    </li>
+                    <li class="nav-item nav-category">Content Management</li>
+                    <li class="nav-item ">
+                        <a href="../apps/calendar.html" class="nav-link">
+                            <i class="link-icon" data-feather="list"></i>
+                            <span class="link-title">Blog</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <nav class="settings-sidebar">
+            <div class="sidebar-body">
+                <a href="#" class="settings-sidebar-toggler">
+                    <i data-feather="settings"></i>
+                </a>
+                <h6 class="text-muted">Sidebar:</h6>
+                <div class="form-group border-bottom">
+                    <div class="form-check form-check-inline">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="sidebarThemeSettings" id="sidebarLight" value="sidebar-light" checked>
+                            Light
+                        </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="sidebarThemeSettings" id="sidebarDark" value="sidebar-dark">
+                            Dark
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <div class="page-wrapper">
+            <nav class="navbar">
+                <a href="#" class="sidebar-toggler">
+                    <i data-feather="menu"></i>
+                </a>
+                <div class="navbar-content">
+                    <ul class="navbar-nav">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="languageDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="flag-icon flag-icon-us mt-1" title="us"></i> <span class="font-weight-medium ml-1 mr-1">English</span>
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="languageDropdown">
+                                <a href="javascript:;" class="dropdown-item py-2"><i class="flag-icon flag-icon-us" title="us" id="us"></i> <span class="ml-1"> English </span></a>
+                                <a href="javascript:;" class="dropdown-item py-2"><i class="flag-icon flag-icon-fr" title="fr" id="fr"></i> <span class="ml-1"> French </span></a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown nav-apps">
+                            <a class="nav-link dropdown-toggle" href="#" id="appsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i data-feather="bell"></i>
+                                <div class="indicator">
+                                    <div class="circle"></div>
+                                </div>
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="appsDropdown">
+                                <div class="dropdown-header d-flex align-items-center justify-content-between">
+                                    <p class="mb-0 font-weight-medium">Web Apps</p>
+                                    <a href="javascript:;" class="text-muted">Edit</a>
+                                </div>
+                                <div class="dropdown-body">
+                                    <div class="d-flex align-items-center apps">
+                                        <a href="../apps/chat.html"><i data-feather="message-square" class="icon-lg"></i>
+                                            <p>Chat</p>
+                                        </a>
+                                        <a href="../apps/calendar.html"><i data-feather="calendar" class="icon-lg"></i>
+                                            <p>Calendar</p>
+                                        </a>
+                                        <a href="../email/inbox.html"><i data-feather="mail" class="icon-lg"></i>
+                                            <p>Email</p>
+                                        </a>
+                                        <a href="profile.html"><i data-feather="instagram" class="icon-lg"></i>
+                                            <p>Profile</p>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="dropdown-footer d-flex align-items-center justify-content-center">
+                                    <a href="javascript:;">View all</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown nav-profile">
+                            <a class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <img src="../assets/images/faces/face1.jpg" alt="profile">
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="profileDropdown">
+                                <div class="dropdown-header d-flex flex-column align-items-center">
+                                    <div class="figure mb-3">
+                                        <img src="../assets/images/faces/face1.jpg" alt="">
+                                    </div>
+                                    <div class="info text-center">
+                                        <p class="name font-weight-bold mb-0">Amiah Burton</p>
+                                        <p class="email text-muted mb-3">amiahburton@gmail.com</p>
+                                    </div>
+                                </div>
+                                <div class="dropdown-body">
+                                    <ul class="profile-nav p-0 pt-3">
+                                        <li class="nav-item">
+                                            <a href="profile.html" class="nav-link">
+                                                <i data-feather="user"></i>
+                                                <span>Profile</span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="javascript:;" class="nav-link">
+                                                <i data-feather="edit"></i>
+                                                <span>Edit Profile</span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="javascript:;" class="nav-link">
+                                                <i data-feather="log-out"></i>
+                                                <span>Log Out</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            <div class="page-content">
+                <div class="row inbox-wrapper">
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-lg-3 email-aside border-lg-right">
+                                        <div class="aside-content">
+                                            <div class="aside-header">
+                                                <button class="navbar-toggle" data-target=".aside-nav" data-toggle="collapse" type="button">
+                                                    <span class="icon"><i data-feather="chevron-down"></i></span>
+                                                    </button>
+                                                <span class="title text-muted font-weight-bold">Leave Request</span>
+                                                <p class="text-muted">HR-Service@mattel.com</p>
+                                            </div>
+                                            <div class="aside-compose"><a class="btn btn-primary btn-block" href="compose.html">Compose Email</a></div>
+                                            <div class="aside-nav collapse">
+                                                <ul class="nav">
+                                                    <li><a href="inbox.html"><span class="icon"><i data-feather="inbox"></i></span>Inbox<span class="badge badge-danger-muted text-white font-weight-bold float-right">2</span></a></li>
+                                                    <li class="active"><a href="#"><span class="icon"><i data-feather="mail"></i></span>Sent Mail</a></li>
+                                                    <li><a href="#"><span class="icon"><i data-feather="trash"></i></span>Trash</a></li>
+                                                </ul>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-9 email-content">
+                                        <div class="email-head">
+                                            <div class="email-head-title d-flex align-items-center">
+                                                <span data-feather="edit" class="icon-md mr-2"></span> New message
+                                            </div>
+                                        </div>
+                                        <div class="email-compose-fields">
+                                            <div class="to">
+                                                <div class="form-group row py-0">
+                                                    <label class="col-md-1 control-label">To:</label>
+                                                    <div class="col-md-11">
+                                                        <div class="form-group">
+                                                            <select class=" form-control ">
+                                                                <option value="AL">Alabama</option>
+                                                                <option value="WY">Wyoming</option>
+                                                                <option value="AM">America</option>
+                                                                <option value="CA">Canada</option>
+                                                                <option value="RU">Russia</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="to cc">
+                                                <div class="form-group row pt-1 pb-3">
+                                                    <label class="col-md-1 control-label">Reason</label>
+                                                    <div class="col-md-11">
+                                                        <select class="form-control ">
+                                                            <option value="Alabama">Annual Leave</option>
+                                                            <option value="Alaska"selected="selected">Alaska</option>
+                                                            <option value="Melbourne">Melbourne</option>
+                                                            <option value="Victoria" selected="selected">Victoria</option>
+                                                            <option value="Newyork">Newyork</option>
+                                                            </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="subject">
+                                                <div class="form-group row py-0">
+                                                    <label class="col-md-1 control-label">Subject</label>
+                                                    <div class="col-md-11">
+                                                        <input class="form-control" type="text">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="email editor">
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label class="control-label sr-only" for="simpleMdeEditor">Descriptions </label>
+                                                    <textarea class="form-control" name="tinymce" id="simpleMdeEditor" rows="5"></textarea>
+                                                </div>
+                                            </div>
+                                            <div class="email action-send">
+                                                <div class="col-md-12">
+                                                    <div class="form-group mb-0">
+                                                        <button class="btn btn-primary btn-space" type="submit"><i class="icon s7-mail"></i> Send</button>
+                                                        <button class="btn btn-secondary btn-space" type="button"><i class="icon s7-close"></i> Cancel</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <footer class="footer d-flex flex-column flex-md-row align-items-center justify-content-between ">
+                <p class="text-muted text-center text-md-left ">Copyright © 2020 <a href=" " target="_blank ">HRD</a>. All rights reserved</p>
+                <p class="text-muted text-center text-md-left mb-0 d-none d-md-block ">Handcrafted With <i class="mb-1 text-primary ml-1 icon-small "></i></p>
+            </footer>
+        </div>
+    </div>
+    <!-- base js -->
+    <script src="../js/app.js "></script>
+    <script src="../assets/plugins/feather-icons/feather.min.js "></script>
+    <script src="../assets/plugins/perfect-scrollbar/perfect-scrollbar.min.js "></script>
+    <script src="../assets/js/template.js "></script>
+    <script>
+        var simplemde = new SimpleMDE({
+            element: document.getElementById("simpleMdeEditor")
+        });
+    </script>
+
+</body>
+
+</html>

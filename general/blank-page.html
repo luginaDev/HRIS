@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 
 <head>
@@ -13,16 +13,42 @@
     <link href="../assets/fonts/feather-font/css/iconfont.css" rel="stylesheet" />
     <link href="../assets/plugins/flag-icon-css/css/flag-icon.min.css" rel="stylesheet" />
     <link href="../assets/plugins/perfect-scrollbar/perfect-scrollbar.css" rel="stylesheet" />
+    <link href="../assets/plugins/jquery-steps/jquery.steps.css" rel="stylesheet" />
     <link href="../css/app.css" rel="stylesheet" />
+    <style>
+        .red {
+            color: #ff2a00
+        }
+        
+        .orange {
+            color: #ff5900
+        }
+        
+        .yellow {
+            color: #ffee00;
+        }
+        
+        .purple {
+            color: #e3308f;
+        }
+        
+        .high_purple {
+            color: #6200d9;
+        }
+        
+        .blue_sky {
+            color: #0089d9;
+        }
+    </style>
 </head>
 
-<body data-base-url="https://www.nobleui.com/laravel/template/light">
+<body data-base-url="">
     <script src="../assets/js/spinner.js"></script>
     <div class="main-wrapper" id="app">
         <nav class="sidebar">
             <div class="sidebar-header">
                 <a href="#" class="sidebar-brand">
-                    HR<span>A</span>
+                    <img src="../assets/images/Mattel_logo.png" alt="" width="45" height="45">
                 </a>
                 <div class="sidebar-toggler not-active">
                     <span></span>
@@ -41,31 +67,51 @@
                     </li>
                     <li class="nav-item nav-category">Attendance Management</li>
                     <li class="nav-item ">
+                        <a href="../apps/calendar.html" class="nav-link">
+                            <i class="link-icon" data-feather="calendar"></i>
+                            <span class="link-title">Attendance</span>
+                        </a>
+                    </li>
+                    <li class="nav-item ">
+                        <a href="../apps/chat.html" class="nav-link">
+                            <i class="link-icon" data-feather="log-out"></i>
+                            <span class="link-title">Leave Request</span>
+                        </a>
+                    </li>
+                    <li class="nav-item ">
                         <a class="nav-link" data-toggle="collapse" href="#email" role="button" aria-expanded="false" aria-controls="email">
-                            <i class="link-icon" data-feather="mail"></i>
-                            <span class="link-title">Email</span>
+                            <i class="link-icon" data-feather="folder"></i>
+                            <span class="link-title">DMS</span>
                             <i class="link-arrow" data-feather="chevron-down"></i>
                         </a>
                         <div class="collapse " id="email">
                             <ul class="nav sub-menu">
                                 <li class="nav-item">
-                                    <a href="../email/inbox.html" class="nav-link ">Inbox</a>
+                                    <a href="../email/inbox.html" class="nav-link ">Master Data</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="../email/inbox.html" class="nav-link ">Organizational Management</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="../email/inbox.html" class="nav-link ">Attendance Management</a>
                                 </li>
                             </ul>
                         </div>
                     </li>
                     <li class="nav-item ">
                         <a href="../apps/chat.html" class="nav-link">
-                            <i class="link-icon" data-feather="log-out"></i>
-                            <span class="link-title">Leave</span>
+                            <i class="link-icon" data-feather="help-circle"></i>
+                            <span class="link-title">IT Help desk</span>
                         </a>
                     </li>
+                    <li class="nav-item nav-category">Content Management</li>
                     <li class="nav-item ">
                         <a href="../apps/calendar.html" class="nav-link">
-                            <i class="link-icon" data-feather="calendar"></i>
-                            <span class="link-title">Attendance</span>
+                            <i class="link-icon" data-feather="list"></i>
+                            <span class="link-title">Blog</span>
                         </a>
                     </li>
+
                 </ul>
             </div>
         </nav>
@@ -183,152 +229,447 @@
             </nav>
             <div class="page-content">
                 <!-- Page content here -->
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb bg-inverse-primary">
+                        <li class="breadcrumb-item active"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item active"><a href="#">Dashboard</a></li>
+
+                    </ol>
+                </nav>
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="card">
                             <div class="card-body">
                                 <div class="row">
-                                    <div class="col-sm-4">
+                                    <div class="col-sm-6">
                                         <h4>Good Morning, Lugina!</h4>
-                                        <p class="text-muted mb-4">It's 06 September 2020</p>
+                                        <p class="text-muted mb-4">It's 08 September 2020</p>
                                         <h6 class="mb-4">Shorcut</h6>
                                         <button class="btn btn-outline-dark btn-rounded mr-4">Leave Request</button>
+                                        <button class="btn btn-outline-dark btn-rounded mr-4">Attendance</button>
                                         <button class="btn btn-outline-dark btn-rounded">Duty Allowance</button>
                                         <br>
                                     </div>
+
                                     <div class="col-md-4">
-                                        <h1 class="display-3 text-center"><strong class=""><span class=" text-danger">W</span><span class=" text-danger">O</span><span class=" text-warning">N</span><span class=" text-info">D</span><span class=" text-primary">E</span><span class=" text-success">R</span></strong></h1>
+                                        <h1 class="display-3 text-center text-lowercase"><strong class=""><span class="red">W</span><span class=" orange">O</span><span class=" yellow">N</span><span class="purple">D</span><span class="high_purple">E</span><span class="blue_sky">R</span></strong></h1>
                                         <h6 class="display-4 mt-3 text-center" id="typewriter"></h6>
                                     </div>
-                                    <div class="col-md-4">
-                                        <img src="../assets/images/dashboard_2.svg" class="float-right mr-5" width="150" height="150">
-                                    </div>
-                                </div><!-- Row -->
+
+                                </div>
+                                <!-- Row -->
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="row mt-2">
-                    <div class="col-xl-6 grid-margin stretch-card">
+                <br>
+                <br>
+                <h1 class="display-5">What's News ?</h1>
+                <div class="row mt-4">
+                    <div class="col-lg-3">
+                        <img src="../assets/images/carousel/toy-3661754_640.jpg" width="300" height="150" class="card-img-top" alt="...">
                         <div class="card">
+
                             <div class="card-body">
-                                <h6 class="card-title">Line chart</h6>
-                                <div id="apexLine"></div>
+                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                             </div>
                         </div>
                     </div>
-                    <div class="col-xl-6 grid-margin stretch-card">
+                    <div class="col-lg-3">
+                        <img src="../assets/images/carousel/children-770216_640.jpg" width="300" height="150" class="card-img-top" alt="...">
                         <div class="card">
+
                             <div class="card-body">
-                                <h6 class="card-title">Bar chart</h6>
-                                <div id="apexBar"></div>
+                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-12 mt-2">
+                    <div class="col-lg-3">
+                        <img src="../assets/images/carousel/beauty-1260975_640.jpg" width="300" height="150" class="card-img-top" alt="...">
                         <div class="card">
+
                             <div class="card-body">
-                                <h6 class="card-title">Area chart</h6>
-                                <div id="apexArea"></div>
+                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                             </div>
                         </div>
                     </div>
+
+                    <div class="col-lg-3">
+                        <img src="../assets/images/carousel/workplace-1245776_640.jpg" width="300" height="150" class="card-img-top" alt="...">
+                        <div class="card">
+                            <div class="card-body">
+                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
-                <div class="row mt-3">
-                    
-                    <div class="col-lg-12 ">
+                <br>
+                <br>
+                <h1 class="display-5">Top News !</h1>
+                <div class="row mt-4">
+                    <div class="col-lg-8 ">
+                        <div class="card">
+                            <img src="../assets/images/carousel/barbie-1710709_1280.jpg" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
                         <div class="card">
                             <div class="card-body">
-                                <div class="card-title">Employee Birthday This Month</div>
-                                <div class="row">
-                                    <div class="  col-lg-10"> 
-                                       <div class="table-responsive">
+                                <h6 class="card-title">Corona Virus</h6>
+                                <div class="table-responsive">
                                     <table class="table table-borderless">
+                                        <thead class="thead-dark">
+                                            <tr>
+                                                <th>Status</th>
+                                                <th>Indonesian</th>
+                                                <th>World</th>
+                                            </tr>
+                                        </thead>
                                         <tbody>
                                             <tr>
-                                                <td>Muhamad Lugina Nurhuda</td>
-                                                <td>Turning To 20 year old</td>
-                                                <td>27 September 2020</td>
+                                                <td>Positive</td>
+                                                <td class="text-warning"><strong> 196,989</strong></td>
+                                                <td class="text-warning"><strong> 27,114,571 </strong> </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Die</td>
+                                                <td class="text-danger">8,130</td>
+                                                <td class="text-danger">883,538</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Recovered</td>
+                                                <td class="text-success">140,652 </td>
+                                                <td class="text-success">18,140,467</td>
                                             </tr>
                                         </tbody>
                                     </table>
                                 </div>
+                                <p class="card-description mt-1">
+                                    <i> Update: 7 September 2020 pukul 15.24</i>
+                                    <br>
+                                    <span class="text-muted">Source: Kementerian Kesehatan, Johns Hopkins Created with Datawrapper</span>
+                                    <br>
+                                    <button type="button" class="btn btn-outline-dark btn-icon-text mt-4" data-toggle="modal" data-target="#exampleModal">
+                                        More details
+                                        <i class="btn-icon-append" data-feather="arrow-right-circle"></i>
+                                      </button>
+                                    </button>
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="row  mt-5 ">
+                    <div class="col-lg-9 ">
+                        <div class="card">
+                            <div class="card-body bg-danger text-white">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <img src="../assets/images/undraw_medical_care_movn.svg" width="180" height="130" alt="">
                                     </div>
-                                     <div class="col-lg-2">
-                                    
-                        <img src="../assets/images/dashboard_4.svg" class="float-right text-center "  width="150" height="150">
-                    </div> 
+                                    <div class="col-md-8  text-center">
+                                        <p class="lead mb-2"><strong><b>Self monitoring COVID-19</b></strong></p>
+                                        <p class="text-white mb-3">Let's identify the symptoms and report your condition to the company.</p>
+                                        <button class="btn btn-sm btn-light" data-toggle="modal" data-target="#exampleModal"> More details</button>
+                                    </div>
                                 </div>
-                               
                             </div>
                         </div>
                     </div>
-                   
-                </div>
-                <div class="row mt-5">
-                    <div class="col-lg-12">
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-lg" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Self monitoring</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="row">
+                                        <div class="col-md-12 grid-margin stretch-card">
+                                            <div class="card">
+                                                <div class="card-body">
+                                                    <div id="wizard">
+                                                        <h2>First Step</h2>
+                                                        <section>
+                                                            <h4>Heading</h4>
+                                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ut nulla nunc. Maecenas arcu sem, hendrerit a tempor quis, sagittis accumsan tellus. In hac habitasse platea dictumst. Donec a
+                                                                semper dui. Nunc eget quam libero. Nam at felis metus. Nam tellus dolor, tristique ac tempus nec, iaculis quis nisi.</p>
+                                                        </section>
+
+                                                        <h2>Second Step</h2>
+                                                        <section>
+                                                            <h4>Heading</h4>
+                                                            <p>Donec mi sapien, hendrerit nec egestas a, rutrum vitae dolor. Nullam venenatis diam ac ligula elementum pellentesque. In lobortis sollicitudin felis non eleifend. Morbi tristique tellus est,
+                                                                sed tempor elit. Morbi varius, nulla quis condimentum dictum, nisi elit condimentum magna, nec venenatis urna quam in nisi. Integer hendrerit sapien a diam adipiscing consectetur. In euismod
+                                                                augue ullamcorper leo dignissim quis elementum arcu porta. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum leo velit, blandit ac tempor nec, ultrices id diam. Donec metus
+                                                                lacus, rhoncus sagittis iaculis nec, malesuada a diam. Donec non pulvinar urna. Aliquam id velit lacus.</p>
+                                                        </section>
+
+                                                        <h2>Third Step</h2>
+                                                        <section>
+                                                            <h4>Heading</h4>
+                                                            <p>Morbi ornare tellus at elit ultrices id dignissim lorem elementum. Sed eget nisl at justo condimentum dapibus. Fusce eros justo, pellentesque non euismod ac, rutrum sed quam. Ut non mi tortor.
+                                                                Vestibulum eleifend varius ullamcorper. Aliquam erat volutpat. Donec diam massa, porta vel dictum sit amet, iaculis ac massa. Sed elementum dui commodo lectus sollicitudin in auctor mauris
+                                                                venenatis.
+                                                            </p>
+                                                        </section>
+
+                                                        <h2>Forth Step</h2>
+                                                        <section>
+                                                            <h4>Heading</h4>
+                                                            <p>Quisque at sem turpis, id sagittis diam. Suspendisse malesuada eros posuere mauris vehicula vulputate. Aliquam sed sem tortor. Quisque sed felis ut mauris feugiat iaculis nec ac lectus. Sed consequat
+                                                                vestibulum purus, imperdiet varius est pellentesque vitae. Suspendisse consequat cursus eros, vitae tempus enim euismod non. Nullam ut commodo tortor.</p>
+                                                        </section>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
                         <div class="card">
                             <div class="card-body">
-                                <div class="card-title">Contract End Soon</div>
-                                <div class="row">
-                                    <div class="col-md-12">
+                                <p class="card-title">Annual Leave Balance <i class="pl-1" data-feather="alert-circle"></i></p>
+                                <h6 class="display-4">10 Days</h6>
+                                <br>
+                                <button type="button" class="btn btn-outline-dark btn-icon-text">
+                                    Leave Request
+                                    <i class="btn-icon-append" data-feather="arrow-right-circle"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <br>
+                <h1 class="display-5">Employee Birth Day this month</h1>
+                <div class="row mt-4">
+                    <div class="col-lg-12 ">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row mt-2">
+                                    <div class="  col-lg-12">
                                         <div class="table-responsive">
-                                            <table class="table">
+                                            <table class="table table-bordered">
+                                                <thead class="thead-dark">
+                                                    <tr>
+                                                        <th class="">
+                                                            <center>Employee Name</center>
+                                                        </th>
+                                                        <th colspan="2" class="">
+                                                            <center><i data-feather="calendar"></i></center>
+                                                        </th>
+                                                    </tr>
+                                                </thead>
                                                 <tbody>
                                                     <tr>
-                                                        <td>Muhamad Lugina Nurhuda</td>
-                                                        <td>Turning To 20 year old</td>
-                                                        <td>27 September 2020</td>
+                                                        <td class="text-center ">Muhamad Lugina Nurhuda (HR)</td>
+                                                        <td class="text-center ">Turning To 20 year old</span>
+                                                        </td>
+                                                        <td class="text-center  text-white bg-secondary"><i data-feather="bell" class=" pr-2"></i> 27 September 2020</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-center  ">Muhamad Lugina Nurhuda (HR)</td>
+                                                        <td class="text-center  ">Turning To 20 year old</span>
+                                                        </td>
+                                                        <td class="text-center  "> 29 September 2020</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-center ">Muhamad Lugina Nurhuda (HR)</td>
+                                                        <td class="text-center ">Turning To 20 year old</span>
+                                                        </td>
+                                                        <td class="text-center ">
+                                                            </i> 29 September 2020</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-center ">Muhamad Lugina Nurhuda (HR)</td>
+                                                        <td class="text-center ">Turning To 20 year old</span>
+                                                        </td>
+                                                        <td class="text-center ">
+                                                            </i> 29 September 2020</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-center ">Muhamad Lugina Nurhuda (HR)</td>
+                                                        <td class="text-center ">Turning To 20 year old</span>
+                                                        </td>
+                                                        <td class="text-center ">
+                                                            </i> 29 September 2020</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-center ">Muhamad Lugina Nurhuda (HR)</td>
+                                                        <td class="text-center ">Turning To 20 year old</span>
+                                                        </td>
+                                                        <td class="text-center ">
+                                                            </i> 29 September 2020</td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td class="text-center ">Muhamad Lugina Nurhuda (HR)</td>
+                                                        <td class="text-center ">Turning To 20 year old</span>
+                                                        </td>
+                                                        <td class="text-center ">
+                                                            </i> 29 September 2020</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-center ">Muhamad Lugina Nurhuda (HR)</td>
+                                                        <td class="text-center ">Turning To 20 year old</span>
+                                                        </td>
+                                                        <td class="text-center "> 28 September 2020</td>
                                                     </tr>
                                                 </tbody>
                                             </table>
                                         </div>
                                     </div>
+
                                 </div>
+
                             </div>
                         </div>
                     </div>
+
+                </div>
+
+                <br>
+                <br>
+                <h1 class="display-5">Employee Service Award</h1>
+
+                <div class="row mt-4">
+                    <div class="col-lg-12 ">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row mt-2">
+                                    <div class="col-lg-12">
+                                        <div class="table-responsive">
+                                            <table class="table">
+                                                <thead class="thead-dark">
+                                                    <tr>
+                                                        <th width="200">
+                                                            Employee Name</i>
+                                                        </th>
+                                                        <th width="200">
+                                                            <i data-feather="trending-up"></i>
+                                                        </th>
+                                                        <th width="200">
+                                                            <i data-feather="activity"></i>
+                                                        </th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td class=" ">Joe Walker (Material)</td>
+                                                        <td class=" "><span class="badge badge-secondary text-white">20 Years</span></td>
+                                                        <td><i data-feather="star" class="text-warning"></i></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="  ">Adam Jordan (Material)</td>
+                                                        <td class="  "><span class="badge badge-secondary text-white">20 Years</span></td>
+                                                        <td><i data-feather="star" class="text-warning"></i></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class=" ">Alexander (Material)</td>
+                                                        <td class=" "><span class="badge badge-secondary text-white">20 Years</span></td>
+                                                        <td><i data-feather="star" class="text-warning"></i></td>
+
+                                                    </tr>
+                                                    <tr>
+                                                        <td class=" ">Martha Allice (Material)</td>
+                                                        <td class=" "><span class="badge badge-secondary text-white">20 Years</span></td>
+                                                        <td><i data-feather="star"></i></td>
+
+                                                    </tr>
+                                                    <tr>
+                                                        <td class=" ">Gerrad Gabriel (Material)</td>
+                                                        <td class=" "><span class="badge badge-secondary text-white">20 Years</span></td>
+                                                        <td><i data-feather="star"></i></td>
+
+                                                    </tr>
+                                                    <tr>
+                                                        <td class=" ">Layla Chan (Material)</td>
+                                                        <td class=" "><span class="badge badge-secondary text-white">20 Years</span></td>
+                                                        <td><i data-feather="star"></i></td>
+
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td class=" ">Khaled Muhammad (Material)</td>
+                                                        <td class=" "><span class="badge badge-secondary text-white">20 Years</span></td>
+                                                        <td><i data-feather="star"></i></td>
+
+                                                    </tr>
+                                                    <tr>
+                                                        <td class=" ">Baruna ASG (Material)</td>
+                                                        <td class=" "><span class="badge badge-secondary text-white">20 Years</span></td>
+                                                        <td><i data-feather="star"></i></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
                 <!--  Page end  end-->
             </div>
-            <footer class="footer d-flex flex-column flex-md-row align-items-center justify-content-between">
-                <p class="text-muted text-center text-md-left">Copyright © 2020 <a href="" target="_blank">HRD</a>. All rights reserved</p>
-                <p class="text-muted text-center text-md-left mb-0 d-none d-md-block">Handcrafted With <i class="mb-1 text-primary ml-1 icon-small" data-feather="heart"></i></p>
+
+
+            <footer class="footer d-flex flex-column flex-md-row align-items-center justify-content-between ">
+                <p class="text-muted text-center text-md-left ">Copyright © 2020 <a href=" " target="_blank ">HRD</a>. All rights reserved</p>
+                <p class="text-muted text-center text-md-left mb-0 d-none d-md-block ">Handcrafted With <i class="mb-1 text-primary ml-1 icon-small "></i></p>
             </footer>
         </div>
     </div>
     <!-- base js -->
-    <script src="../js/app.js"></script>
-    <script src="../assets/plugins/feather-icons/feather.min.js"></script>
+    <script src="../js/app.js "></script>
+    <script src="../assets/plugins/feather-icons/feather.min.js "></script>
+    <script src="../assets/plugins/perfect-scrollbar/perfect-scrollbar.min.js "></script>
+    <script src="../assets/js/template.js "></script>
+    <script src="https://unpkg.com/typewriter-effect@latest/dist/core.js "></script>
+    <!-- plugin js -->
+    <script src="../assets/plugins/jquery-steps/jquery.steps.min.js"></script>
+    <!-- end plugin js -->
     <script src="../assets/plugins/perfect-scrollbar/perfect-scrollbar.min.js"></script>
-    <script src="../assets/js/template.js"></script>
-    <script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
-    <script src="../assets/plugins/apexcharts/apexcharts.min.js"></script>
-    <script src="../assets/js/apexcharts.js"></script>
-    <script type="text/javascript">
-    const typewriter = new Typewriter('#typewriter', {
-        loop: true,
-    });
 
-    typewriter.typeString('W<strong>hat If? Why Not<strong>')
-        .pauseFor(2500)
-
-        .deleteChars(16)
-        .typeString('<span class="text-info">O</span><strong>ne Team<strong>')
-        .pauseFor(2500)
-        .deleteChars(8)
-        .typeString('N<strong>imbel<strong>')
-        .pauseFor(2500)
-        .deleteChars(6)
-        .typeString('D<strong>riven<strong>')
-        .pauseFor(2500)
-        .deleteChars(6)
-        .typeString('E<strong>ntrepreneurial<strong>')
-        .pauseFor(2500)
-        .deleteChars(15)
-        .typeString('R<strong>espectful<strong>')
-        .pauseFor(2500)
-        .start();
+    <script src="../assets/js/wizard.js"></script>
+    <script type="text/javascript ">
+        const typewriter = new Typewriter('#typewriter', {
+            loop: true,
+        });
+        typewriter.typeString('<span class="red">W</span><strong>hat If? Why Not?<strong>')
+            .pauseFor(2500)
+            .deleteChars(17)
+            .typeString('<span class="orange">O</span><strong>ne Team<strong>')
+            .pauseFor(2500)
+            .deleteChars(8)
+            .typeString('<span class="yellow">N</span><strong>imbel<strong>')
+            .pauseFor(2500)
+            .deleteChars(6)
+            .typeString('<span class="purple">D</span><strong>riven<strong>')
+            .pauseFor(2500)
+            .deleteChars(6)
+            .typeString('<span class="high_purple">E</span><strong>ntrepreneurial<strong>')
+            .pauseFor(2500)
+            .deleteChars(15)
+            .typeString('<span class="blue_sky">R</span><strong>espectful<strong>')
+            .pauseFor(2500)
+            .start();
     </script>
 </body>
 
